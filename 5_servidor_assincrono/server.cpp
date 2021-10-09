@@ -28,7 +28,7 @@ void handle_accept(socket_ptr sock, const boost::system::error_code& err)
 
         if(len > 0)
         {
-            std::cout << "Received" << len << " bytes" << std::endl;
+            std::cout << "Received " << len << " bytes." << std::endl;
             write(*sock, boost::asio::buffer(data), ec);
             if(ec) std::cout << ec.message() << std::endl;
         }
