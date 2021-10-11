@@ -39,7 +39,7 @@ int main()
     std::thread thrContext = std::thread([&]() {context.run();});
 
     // Get the address of somewhere we wish to connect to
-    boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::make_address("93.184.216.34", ec), 80);
+    boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::make_address("172.217.168.238", ec), 80);
 
     // Create a socket, the context will deliver the implementation
     boost::asio::ip::tcp::socket socket(context);
