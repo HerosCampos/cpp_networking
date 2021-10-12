@@ -4,9 +4,19 @@
 #include <boost/asio.hpp>
 #include <boost/asio/ts/buffer.hpp>
 #include <boost/asio/ts/internet.hpp>
+#include <fstream>
+#include <pthread.h>
+#include <chrono>
+#include <filesystem>
+#include <experimental/filesystem>
 
 
-std::vector<char> vBuffer(200);
+                // std::ofstream file("dados.txt", std::ofstream::binary);
+                // file.write(vBuffer.data(), vBuffer.size());
+
+
+std::vector<char> vBuffer(5000);
+
 
 void GrabSomeData(boost::asio::ip::tcp::socket& socket)
 {
@@ -72,5 +82,10 @@ int main()
         std::this_thread::sleep_for(200ms);
     }
 
-
+    std::ofstream file("rede.txt", std::ofstream::app);
+    for(char c: vBuffer)
+    {
+        file << c;
+    }
+    file.close();
 }
