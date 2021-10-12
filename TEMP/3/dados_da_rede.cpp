@@ -26,10 +26,11 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
             for(int i = 0; i < length; i++)
             {
                 std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out);
+                for(int c = 0; c < length; c++)
                 {
-                    std::cout << vBuffer[i];
+                    std::cout << vBuffer[c];
 
-                    file << vBuffer[i];
+                    file << vBuffer[c];
                 }
                 GrabSomeData(socket);
             }
