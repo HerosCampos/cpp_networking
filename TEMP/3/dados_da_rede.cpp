@@ -15,7 +15,7 @@
                 // file.write(vBuffer.data(), vBuffer.size());
 
 
-std::vector<char> vBuffer(5000);
+std::vector<char> vBuffer(200);
 
 
 void GrabSomeData(boost::asio::ip::tcp::socket& socket)
@@ -24,10 +24,12 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
         [&](std::error_code ec, std::size_t length)
         {
             std::cout << "\n\nRead: " << length << " bytes\n\n";
-
+            std::ofstream file("rede.txt", std::ios::app);
             for(int i = 0; i < length; i++)
             {
                 std::cout << vBuffer[i];
+
+                file << vBuffer[i];
             }
             GrabSomeData(socket);
         }
@@ -82,10 +84,10 @@ int main()
         std::this_thread::sleep_for(200ms);
     }
 
-    std::ofstream file("rede.txt", std::ofstream::app);
-    for(char c: vBuffer)
-    {
-        file << c;
-    }
-    file.close();
+    // std::ofstream file("rede.txt", std::ofstream::app);
+    // for(char c: vBuffer)
+    // {
+    //     file << c;
+    // }
+    // file.close();
 }
