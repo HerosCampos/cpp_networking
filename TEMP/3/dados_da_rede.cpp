@@ -11,10 +11,6 @@
 #include <experimental/filesystem>
 
 
-                // std::ofstream file("dados.txt", std::ofstream::binary);
-                // file.write(vBuffer.data(), vBuffer.size());
-
-
 std::vector<char> vBuffer(200);
 
 
@@ -24,17 +20,43 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
         [&](std::error_code ec, std::size_t length)
         {
             std::cout << "\n\nRead: " << length << " bytes\n\n";
-            std::ofstream file("rede.txt", std::ios::app);
+            std::string prefix = "cog";
+            std::string extension = ".txt";
+
             for(int i = 0; i < length; i++)
             {
-                std::cout << vBuffer[i];
+                std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out);
+                {
+                    std::cout << vBuffer[i];
 
-                file << vBuffer[i];
+                    file << vBuffer[i];
+                }
+                GrabSomeData(socket);
             }
-            GrabSomeData(socket);
         }
     );
 }
+
+
+// void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+// {
+//     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+//         [&](std::error_code ec, std::size_t length)
+//         {
+//             std::cout << "\n\nRead: " << length << " bytes\n\n";
+
+            
+//             std::ofstream file("rede.txt", std::ios::app);
+//             for(int i = 0; i < length; i++)
+//             {
+//                 std::cout << vBuffer[i];
+
+//                 file << vBuffer[i];
+//             }
+//             GrabSomeData(socket);
+//         }
+//     );
+// }
 
 
 int main()
