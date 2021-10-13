@@ -20,6 +20,13 @@ int main()
         boost::asio::ip::tcp::socket socket(io_context);
 
         socket.connect(endpoint);
+
+        std::array<char, 9657> buffer;
+
+        std::ifstream file("salada.jpeg", std::ifstream::binary);
+        file.read(buffer.data(), buffer.size());
+
+        socket.write_some(boost::asio::buffer(buffer));
     }
     catch(const std::exception& e)
     {

@@ -21,6 +21,12 @@ int main()
         std::cout << "Aguardando conexões." << std::endl;
         acceptor.accept(socket);
 
+        std::array<char, 9657> buffer;
+
+        socket.read_some(boost::asio::buffer(buffer));
+
+        std::ofstream file("salada_server.jpeg", std::ofstream::binary);
+        file.write(buffer.data(), buffer.size());
     }
     catch(const std::exception& e)
     {
