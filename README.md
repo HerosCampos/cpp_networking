@@ -20,50 +20,51 @@ Então posso dizer que aprender tudo do zero foi o meu maior desafio, vale dizer
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bs7N927PK4I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qiQR5rTSshw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZSefPfZqxpo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1ZFpThZosv8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uNqrE76PHAE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2hNdkYInj4g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UbjxGvrDrbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hHowZ3bWsio" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/f_1lt9pfaEo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/v3zVT4HJxYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vbUuJ2_6wqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/j4Drn47pc3o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-
+___
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VhhNlWdLPzA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
