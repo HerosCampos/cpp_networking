@@ -35,29 +35,30 @@ std::vector<char> vBuffer(200);
 //         }
 //     );
 // }
-// void GrabSomeData(boost::asio::ip::tcp::socket& socket)
-// {
-//     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
-//         [&](std::error_code ec, std::size_t length)
-//         {
-//             std::cout << "\n\nRead: " << length << " bytes\n\n";
-//             std::string prefix = "cog";
-//             std::string extension = ".txt";
+void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+{
+    socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+        [&](std::error_code ec, std::size_t length)
+        {
+            std::cout << "\n\nRead: " << length << " bytes\n\n";
+            std::string prefix = "cog";
+            std::string extension = ".txt";
 
-//             for(int i = 0; i < length; i++)
-//             {
-//                 std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios::app);
-//                 for(int c = 0; c < length; c++)
-//                 {
-//                     std::cout << vBuffer[c];
+            for(int i = 0; i < length; i++)
+            {
+                std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out);
+                for(int c = 0; c < length; c++)
+                {
+                    std::cout << vBuffer[c];
 
-//                     file << vBuffer[c];
-//                 }
-//             }
-//             GrabSomeData(socket);
-//         }
-//     );
-// }
+                    file << vBuffer[c];
+                }
+                GrabSomeData(socket);
+            }
+            // GrabSomeData(socket);
+        }
+    );
+}
 // void GrabSomeData(boost::asio::ip::tcp::socket& socket)
 // {
 //     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
@@ -93,27 +94,27 @@ std::vector<char> vBuffer(200);
 // }
 
 
-void GrabSomeData(boost::asio::ip::tcp::socket& socket)
-{
-    socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
-        [&](std::error_code ec, std::size_t length)
-        {
-            std::cout << "\n\nRead: " << length << " bytes\n\n";
+// void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+// {
+//     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+//         [&](std::error_code ec, std::size_t length)
+//         {
+//             std::cout << "\n\nRead: " << length << " bytes\n\n";
             
-            std::string prefix = "cog";
-            std::string extension = ".txt";
+//             std::string prefix = "cog";
+//             std::string extension = ".txt";
             
-            std::ofstream file("rede.txt", std::ios::app);
-            for(int i = 0; i < length; i++)
-            {
-                std::cout << vBuffer[i];
+//             std::ofstream file("rede.txt", std::ios::app);
+//             for(int i = 0; i < length; i++)
+//             {
+//                 std::cout << vBuffer[i];
 
-                file << vBuffer[i];
-            }
-            GrabSomeData(socket);
-        }
-    );
-}
+//                 file << vBuffer[i];
+//             }
+//             GrabSomeData(socket);
+//         }
+//     );
+// }
 
 
 
