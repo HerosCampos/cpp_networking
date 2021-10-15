@@ -26,7 +26,7 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
 
             for(int i = 0; i < length; i++)
             {
-                std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out);
+                std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out); //std::ios::app    
                 for(int c = 0; c < length; c++)
                 {
                     std::cout << vBuffer[c];
@@ -49,7 +49,7 @@ int main()
 
     boost::asio::steady_timer timer{context, std::chrono::seconds{2}};
     timer.async_wait([](const boost::system::error_code &ec) {
-        std::cout << "2 segundos" << ec.message() << std::endl;});
+        std::cout << "2 segundos: " << ec.message() << std::endl;});
 
     // Give some fake tasks to asio so the context doesnt finish
     boost::asio::io_context::work idleWork(context);
