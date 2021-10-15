@@ -7,35 +7,11 @@
 #include <fstream>
 #include <pthread.h>
 #include <chrono>
-
+#include <filesystem>
+#include <experimental/filesystem>
 
 
 std::vector<char> vBuffer(200);
-
-
-void GrabSomeData(boost::asio::ip::tcp::socket& socket)
-{
-    socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
-        [&](std::error_code ec, std::size_t length)
-        {
-            std::cout << "\n\nRead: " << length << " bytes\n\n";
-            std::string prefix = "cog";
-            std::string extension = ".txt";
-
-            for(int i = 0; i < length; i++)
-            {
-                std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios_base::out);
-                for(int c = 0; c < length; c++)
-                {
-                    std::cout << vBuffer[c];
-
-                    file << vBuffer[c];
-                }
-                GrabSomeData(socket);
-            }
-        }
-    );
-}
 
 
 // void GrabSomeData(boost::asio::ip::tcp::socket& socket)
@@ -44,7 +20,9 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
 //         [&](std::error_code ec, std::size_t length)
 //         {
 //             std::cout << "\n\nRead: " << length << " bytes\n\n";
-
+            
+//             std::string prefix = "cog";
+//             std::string extension = ".txt";
             
 //             std::ofstream file("rede.txt", std::ios::app);
 //             for(int i = 0; i < length; i++)
@@ -57,6 +35,91 @@ void GrabSomeData(boost::asio::ip::tcp::socket& socket)
 //         }
 //     );
 // }
+// void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+// {
+//     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+//         [&](std::error_code ec, std::size_t length)
+//         {
+//             std::cout << "\n\nRead: " << length << " bytes\n\n";
+//             std::string prefix = "cog";
+//             std::string extension = ".txt";
+
+//             for(int i = 0; i < length; i++)
+//             {
+//                 std::ofstream file((prefix + "_" + std::to_string(i) + extension), std::ios::app);
+//                 for(int c = 0; c < length; c++)
+//                 {
+//                     std::cout << vBuffer[c];
+
+//                     file << vBuffer[c];
+//                 }
+//             }
+//             GrabSomeData(socket);
+//         }
+//     );
+// }
+// void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+// {
+//     socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+//         [&](std::error_code ec, std::size_t length)
+//         {
+//             std::cout << "\n\nRead: " << length << " bytes\n\n";
+//             std::string prefix = "cog";
+//             std::string extension = ".txt";
+
+//             int cont = 0;
+//             // std::ofstream file((prefix + "_" + std::to_string(cont) + extension), std::ios::app);
+//             // cont += 1;
+
+//             for(char p: vBuffer)
+//             {
+//                 std::ofstream file((prefix + "_" + std::to_string(cont) + extension), std::ifstream::binary ); //std::ifstream::binary   std::ios::app
+//                 cont += 1;
+
+
+//                 file << p;   
+        
+//             }
+
+//             for(int c = 0; c < length; c++)
+//             {
+//                 std::cout << vBuffer[c];
+
+                
+//             } 
+//             GrabSomeData(socket);   
+//         }
+//     );
+// }
+
+
+void GrabSomeData(boost::asio::ip::tcp::socket& socket)
+{
+    socket.async_read_some(boost::asio::buffer(vBuffer.data(), vBuffer.size()),
+        [&](std::error_code ec, std::size_t length)
+        {
+            std::cout << "\n\nRead: " << length << " bytes\n\n";
+            
+            std::string prefix = "cog";
+            std::string extension = ".txt";
+            
+            std::ofstream file("rede.txt", std::ios::app);
+            for(int i = 0; i < length; i++)
+            {
+                std::cout << vBuffer[i];
+
+                file << vBuffer[i];
+            }
+            GrabSomeData(socket);
+        }
+    );
+}
+
+
+
+
+
+
 
 
 int main()
@@ -70,7 +133,7 @@ int main()
     boost::asio::io_context::work idleWork(context);
 
     // Start context
-    std::thread thrContext = std::thread([&]() {context.run();});
+    std::thread thrContext = std::thread([&]() {context.run(); });
 
     // Get the address of somewhere we wish to connect to
     boost::asio::ip::tcp::endpoint endpoint(boost::asio::ip::make_address("172.217.168.238", ec), 80);
@@ -103,7 +166,10 @@ int main()
         socket.write_some(boost::asio::buffer(sRequest.data(), sRequest.size()), ec);
 
         using namespace std::chrono_literals;
-        std::this_thread::sleep_for(200ms);
+        std::this_thread::sleep_for(2000ms);
+
+        // context.stop();
+        // if(thrContext.joinable()) thrContext.join();
     }
 
     // std::ofstream file("rede.txt", std::ofstream::app);
